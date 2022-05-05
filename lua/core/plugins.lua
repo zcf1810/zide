@@ -104,7 +104,8 @@ end
 if FEATURE_GROUPS['buildin_complete'] == true then
     plugins_configure.plugins_groups['buildin_complete'] = {
         ["lsp_config"] = {disable=false},
-        ["nvim_comp"] = {disable=false},
+        --["nvim_comp"] = {disable=false},
+        ["nvim_cmp"] = {disable=false},
         --['lsp_icon'] = {disable=false},
         ['lsp_installer'] = {disable=false},
         ['fold_expr'] = {disable=false},
