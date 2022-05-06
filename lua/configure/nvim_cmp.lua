@@ -37,6 +37,9 @@ plugin.core = {
                     vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
                 end,
             },
+            experimential = {
+                native_menu = false,
+            },
             mapping = {
                 ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 ["<Tab>"] = cmp.mapping(function(fallback)
@@ -60,6 +63,7 @@ plugin.core = {
             },
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
+                { name = 'nvim_lua' }, -- For vsnip users.
                 { name = 'vsnip' }, -- For vsnip users.
                 { name = 'path' }, -- For vsnip users.
                 { name = 'spell' }, -- For vsnip users.
@@ -68,7 +72,22 @@ plugin.core = {
                     { name = 'buffer' },
                 })
         })
-
+        -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline('/', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'buffer' }
+            }
+        })
+        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+        cmp.setup.cmdline(':', {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = 'path' },
+            }, {
+                    { name = 'cmdline' }
+                })
+        })
 
         local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()) --nvim-cmp
         capabilities.textDocument.completion.completionItem.snippetSupport = true

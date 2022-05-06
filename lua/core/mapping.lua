@@ -209,6 +209,12 @@ global_mapping.register({
         short_desc = "Paste From Clipboard"
     })
 global_mapping.register({
+        mode = "n",
+        key = {"<S-p>"},
+        action = '"+p',
+        short_desc = "Paste From Clipboard"
+    })
+global_mapping.register({
         mode = "i",
         key = {"<leader>", "p"},
         action = '<esc>"+p',
@@ -386,6 +392,12 @@ else
     global_mapping.register({
             mode = "v",
             key = {"<leader>", "y"},
+            action = '"+y',
+            short_desc = "Yank to Clipboard"
+        })
+    global_mapping.register({
+            mode = "v",
+            key = {"<S-y>"},
             action = '"+y',
             short_desc = "Yank to Clipboard"
         })
