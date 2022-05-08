@@ -1,3 +1,4 @@
+-- refer to: https://bytemeta.vip/repo/onsails/lspkind-nvim
 local plugin = {}
 
 plugin.core = {
@@ -12,8 +13,9 @@ plugin.core = {
                 -- enables text annotations
                 --
                 -- default: true
-                with_text = true,
-
+                -- fix bug: https://bytemeta.vip/repo/onsails/lspkind-nvim/issues/39https://bytemeta.vip/repo/onsails/lspkind-nvim/issues/39 
+                -- with_text = true,
+                mode = "symbol_text",
                 -- default symbol map
                 -- can be either 'default' or
                 -- 'codicons' for codicon preset (requires vscode-codicons font installed)
