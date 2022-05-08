@@ -1,4 +1,5 @@
--- refer to https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#guide-to-your-first-picker
+-- refer to: https://github.com/nvim-telescope/telescope.nvim/blob/master/developers.md#guide-to-your-first-picker
+-- refer to: https://github.com/nvim-telescope/telescope.nvim/blob/master/doc/telescope.txt
 
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
@@ -41,8 +42,12 @@ local colors = function(opts)
 end
 
 -- to execute the function
-colors(require("telescope.themes").get_dropdown{})
+--colors(require("telescope.themes").get_dropdown{})
 
+local f = io.popen('pwd')
+print(io.popen("pwd"):read("*a"))
+print(vim.loop.cwd())
+print(global_root_path)
 
 
 
