@@ -178,6 +178,13 @@ plugin.mapping = function()
         silent = true
     })
     mappings.register({
+        mode = {"n"},
+        key = {"<leader>", "<A-s>"},
+        action = "<cmd>lua require('telescope.builtin').grep_string()<cr>",
+        short_desc = "Find Current World",
+        silent = true
+    })
+    mappings.register({
         mode = "n",
         key = {"<leader>", "f", "b"},
         action = "<cmd>lua require('telescope.builtin').buffers()<cr>",
