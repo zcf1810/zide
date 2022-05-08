@@ -284,6 +284,15 @@ plugin.mapping = function()
 
     mappings.register({
         mode = "n",
+        key = {"<leader>", "f", ";", "s"},
+        action = "<cmd>lua require('telescope.builtin').git_status()<cr>",
+        short_desc = "Find Git Status",
+        silent = true,
+        noremap = true
+    })
+
+    mappings.register({
+        mode = "n",
         key = {"<leader>", "f", ";", "G"},
         action = "<cmd>lua require('telescope.builtin').git_bcommits()<cr>",
         short_desc = "Find Git Commits(buffer)",
