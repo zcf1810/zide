@@ -3,6 +3,8 @@ vim.cmd("let maplocalleader=','")
 vim.cmd("let mapleader=';'")
 vim.cmd("nnoremap \\ ;")
 vim.cmd("vnoremap \\ ;")
+global_root_path = vim.loop.cwd()
+
 local global_func = require('util.global')
 
 default_setting = {}

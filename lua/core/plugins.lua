@@ -11,7 +11,6 @@ if FEATURE_GROUPS['default'] == true then
         ["plenary"] = {disable=false},
         ['notify'] = {disable=false},
         
-        ["files_tree"] = {disable=false},
 --        ["better_escape"] = {disable=true},        -- for quick map jk to <esc>
 --        ["ultisnips"] = {disable=false},            -- for snippets
 --        ["snippets"] = {disable=false},             -- predefined snippets templete

@@ -1,3 +1,4 @@
+-- refer to: https://github.com/nvim-telescope/telescope.nvim/blob/master/doc/telescope.txt
 local plugin = {}
 
 plugin.core = {
@@ -163,7 +164,8 @@ plugin.mapping = function()
     mappings.register({
         mode = "n",
         key = {"<leader>", "f", "f"},
-        action = "<cmd>lua require('telescope.builtin').find_files()<cr>",
+        -- global_root_path is path of nvim run
+        action = "<cmd>lua require('telescope.builtin').find_files({cwd = global_root_path})<cr>",
         short_desc = "Find files",
         silent = true,
     })
@@ -306,4 +308,5 @@ plugin.mapping = function()
         noremap = true
     })
 end
+
 return plugin

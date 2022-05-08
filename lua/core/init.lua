@@ -11,7 +11,7 @@ FEATURE_GROUPS.default = true
 if USE_COC then
     FEATURE_GROUPS.coc_complete = false
 else
-    FEATURE_GROUPS.buildin_complete = true 
+    FEATURE_GROUPS.buildin_complete = true
 end
 FEATURE_GROUPS.colorschemes = true
 FEATURE_GROUPS.beauty_vim = true
@@ -20,7 +20,7 @@ FEATURE_GROUPS.move_behavior = false
 FEATURE_GROUPS.special_for_language = false
 FEATURE_GROUPS.debug_adapter = false
 FEATURE_GROUPS.org_my_life = false
-FEATURE_GROUPS.enhance = false
+FEATURE_GROUPS.enhance = true
 FEATURE_GROUPS.git = true
 
 
