@@ -9,7 +9,6 @@ if FEATURE_GROUPS['default'] == true then
         ["impatient"] = {disable=false},
         ["nerd_commenter"] = {disable=false},       -- for quick comment
         ["plenary"] = {disable=false},
-        ['notify'] = {disable=false},
         
 --        ["better_escape"] = {disable=true},        -- for quick map jk to <esc>
 --        ["ultisnips"] = {disable=false},            -- for snippets
