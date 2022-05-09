@@ -48,6 +48,8 @@ local f = io.popen('pwd')
 print(io.popen("pwd"):read("*a"))
 print(vim.loop.cwd())
 print(global_root_path)
-
-
-
+path = vim.api.nvim_get_runtime_file("", true)
+--for key, value in pairs(path) do
+    --print(key)
+    --print(value)
+--end

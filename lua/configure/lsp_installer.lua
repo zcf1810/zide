@@ -2,7 +2,7 @@ local plugin = {}
 
 plugin.core = {
     "williamboman/nvim-lsp-installer",
-    --as = "nvim-lspinstall",
+    --as = "nvim-lspinstaller",
     setup = function()  -- Specifies code to run before this plugin is loaded.
 
     end,
@@ -62,7 +62,6 @@ plugin.core = {
         end
 
         -- 自动安装或启动 LanguageServers
-        
         for server_name, server_options in pairs(servers) do
             local server_available, server = lsp_installer_servers.get_server(server_name)
             -- 判断服务是否可用
@@ -71,7 +70,7 @@ plugin.core = {
                 server:on_ready(
                     function()
                         -- keybind
-                        server_options.on_attach = attach
+                        --server_options.on_attach = attach
                         -- options config
                         server_options.flags = {
                             debounce_text_changes = 150
@@ -87,22 +86,6 @@ plugin.core = {
                 end
             end
         end
-
-        local lsp_installer = require("nvim-lsp-installer")
-        -- Register a handler that will be called for all installed servers.
-        --lsp_installer.setup {}       -- Alternatively, you may also register handlers on specific server instances instead (see example below).
-        lsp_installer.on_server_ready(function(server)
-            local opts = {}
-
-            -- (optional) Customize the options passed to the server
-            -- if server.name == "tsserver" then
-            --     opts.root_dir = function() ... end
-            -- end
-
-            -- This setup() function is exactly the same as lspconfig's setup function.
-            -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-            server:setup(opts)
-        end)
     end,
 }
 
