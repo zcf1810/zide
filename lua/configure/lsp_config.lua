@@ -29,6 +29,7 @@ plugin.core = {
                 }
             }
         }
+        require'lspconfig'.rust_analyzer.setup{}
         --require'lspconfig'.tailwindcss.setup{}
         --require'lspconfig'.zeta_note.setup{
             --cmd = {'/home/sun/zeta-note-linux'}
