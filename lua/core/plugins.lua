@@ -104,8 +104,9 @@ if FEATURE_GROUPS['buildin_complete'] == true then
         ["lsp_config"] = {disable=false},
         --["nvim_comp"] = {disable=false},
         ["nvim_cmp"] = {disable=false},
-        ['lsp_icon'] = {disable=false},
         ['lsp_installer'] = {disable=false},
+        ['lsp_icon'] = {disable=false},
+        ['lspsage'] = {disable=false},
         ['fold_expr'] = {disable=false},
     }
 end
