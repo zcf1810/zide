@@ -15,7 +15,8 @@ plugin.core = {
         local servers = {
             -- 语言服务器名称：配置选项
             sumneko_lua = require("configure.sumneko_lua"),
-            -- pyright = require("lsp.pyright"),
+            pyright = require("configure.pyright"),
+            rust_analyzer = {},
             -- tsserver = require("lsp.tsserver"),
             -- html = require("lsp.html"),
             -- cssls = require("lsp.cssls"),
@@ -85,6 +86,9 @@ plugin.core = {
                     server:install()
                 end
             end
+        end
+        for lsp_server, lsp_opts in ipairs(servers) do
+            require('lspconfig')[lsp_server].setup(lsp_opts)
         end
     end,
 }

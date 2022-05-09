@@ -8,32 +8,7 @@ plugin.core = {
     end,
 
     config = function() -- Specifies code to run after this plugin is loaded
-        local util = require("lspconfig.util")
-        require('lspconfig').pyright.setup{
-            root_dir = function(fname)
-                return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", 
-                    "requirements.txt")(fname) or util.path.dirname(fname)
-            end,
-            cmd = { "pyright-langserver", "--stdio" },
-            filetypes = { "python" },
-            --root_dir = function(filename)
-                --return util.root_pattern(unpack(root_files))(filename) or util.path.dirname(filename)
-            --end,
-            settings = {
-                python = {
-                    analysis = {
-                        autoSearchPaths = true,
-                        diagnosticMode = "workspace",
-                        useLibraryCodeForTypes = true
-                    }
-                }
-            }
-        }
-        require'lspconfig'.rust_analyzer.setup{}
-        --require'lspconfig'.tailwindcss.setup{}
-        --require'lspconfig'.zeta_note.setup{
-            --cmd = {'/home/sun/zeta-note-linux'}
-        --}
+
     end,
 }
 
