@@ -3,6 +3,10 @@ local plugin = {}
 plugin.core = {
     "nvim-lualine/lualine.nvim",
     as = "lualine",
+
+    requires = {
+        {"arkav/lualine-lsp-progress"},
+    },
     setup = function()  -- Specifies code to run before this plugin is loaded.
 
     end,
@@ -98,7 +102,7 @@ plugin.core = {
                 lualine_y = {},
                 lualine_z = {},
                 -- These will be filled later
-                lualine_c = {},
+                lualine_c = {'lsp_progress'},
                 lualine_x = {}
             },
             inactive_sections = {
