@@ -74,34 +74,17 @@ plugin.core = {
         end
 
         -- 自动安装或启动 LanguageServers
+        local lsp_config = require('lspconfig')
         for server_name, server_options in pairs(servers) do
             local server_available, server = lsp_installer_servers.get_server(server_name)
             -- 判断服务是否可用
             if server_available then
-                -- 判断服务是否准备就绪，若就绪则启动服务
-                server:on_ready(
-                    function()
-                        -- keybind
-                        --server_options.on_attach = attach
-                        -- options config
-                        server_options.flags = {
-                            debounce_text_changes = 150
-                        }
-                        -- 代替内置 omnifunc
-                        server_options.capabilities = capabilities
-                        -- 启动服务
-                        server:setup(server_options)
-                    end
-                )
-                -- 如果服务器没有下载，则通过 notify 插件弹出下载提示
                 if not server:is_installed() then
                     vim.notify("Install Language Server : " .. server_name, "WARN", {title = "Language Servers"})
                     server:install()
                 end
+                lsp_config[server_name].setup(server_options)
             end
-        end
-        for lsp_server, lsp_opts in ipairs(servers) do
-            require('lspconfig')[lsp_server].setup(lsp_opts)
         end
     end,
 }
