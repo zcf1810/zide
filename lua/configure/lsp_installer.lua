@@ -27,6 +27,7 @@ plugin.core = {
             sumneko_lua = require("configure.sumneko_lua"),
             pyright = require("configure.pyright"),
             rust_analyzer = {},
+            clangd = {},
             -- tsserver = require("lsp.tsserver"),
             -- html = require("lsp.html"),
             -- cssls = require("lsp.cssls"),
