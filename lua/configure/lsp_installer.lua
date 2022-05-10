@@ -3,6 +3,11 @@ local plugin = {}
 plugin.core = {
     "williamboman/nvim-lsp-installer",
     --as = "nvim-lspinstaller",
+    requires = {
+        {"hrsh7th/nvim-cmp"},
+        {"hrsh7th/cmp-nvim-lsp"},
+    },
+
     setup = function()  -- Specifies code to run before this plugin is loaded.
 
     end,
@@ -12,6 +17,11 @@ plugin.core = {
         local lsp_installer_servers = require("nvim-lsp-installer.servers")
         -- 名称：https://github.com/williamboman/nvim-lsp-installer#available-lsps
         -- 配置：https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+        --
+        -- 使用 cmp_nvim_lsp 代替内置 omnifunc，获得更强的补全体验
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
         local servers = {
             -- 语言服务器名称：配置选项
             sumneko_lua = require("configure.sumneko_lua"),
@@ -76,6 +86,8 @@ plugin.core = {
                         server_options.flags = {
                             debounce_text_changes = 150
                         }
+                        -- 代替内置 omnifunc
+                        server_options.capabilities = capabilities
                         -- 启动服务
                         server:setup(server_options)
                     end
