@@ -107,7 +107,7 @@ if FEATURE_GROUPS['buildin_complete'] == true then
         ['lsp_installer'] = {disable=false},
         ['lsp_icon'] = {disable=false},
         ['lightbulb'] = {disable=false},
-        ['lspsage'] = {disable=false},
+        ['lspsaga'] = {disable=false},
         ['fold_expr'] = {disable=false},
     }
 end
