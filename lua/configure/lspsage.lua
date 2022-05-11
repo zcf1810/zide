@@ -1,7 +1,8 @@
 local plugin = {}
 
 plugin.core = {
-    "glepnir/lspsaga.nvim",
+    --"glepnir/lspsaga.nvim",
+    "rinx/lspsaga.nvim",
     --as = "lspsaga",
     setup = function()  -- Specifies code to run before this plugin is loaded.
 
