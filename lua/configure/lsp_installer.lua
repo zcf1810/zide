@@ -100,7 +100,7 @@ plugin.core = {
         -- auto format when write file
         vim.cmd('augroup ' .. "lsp_format")
         vim.cmd 'autocmd!'
-        vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()')
+        vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.format()')
         vim.cmd 'augroup END'
     end,
 }
