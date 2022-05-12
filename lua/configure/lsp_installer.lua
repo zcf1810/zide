@@ -35,10 +35,12 @@ plugin.core = {
             -- sqls = require("lsp.sqls"),
             -- vuels = require("lsp.vuels")
         }
-        -- 这里是 LSP 服务启动后的按键加载
-        local function attach(_, bufnr)
+        -- 这里是 LSP 服务启动后的按键加载, 可以移动到每个lsp的的配置中
+        local function attach(client, bufnr)
             local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
             local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
             -- enable completion trippered by <c-x><c-o>
             buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -94,6 +96,11 @@ plugin.core = {
                 lsp_config[server_name].setup(server_options)
             end
         end
+        -- auto format when write file
+        vim.cmd('augroup ' .. "lsp_format")
+        vim.cmd 'autocmd!'
+        vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()')
+        vim.cmd 'augroup END'
     end,
 }
 
