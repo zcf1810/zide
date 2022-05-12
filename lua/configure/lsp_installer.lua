@@ -26,6 +26,7 @@ plugin.core = {
             pyright = require("configure.pyright"),
             rust_analyzer = {},
             clangd = {},
+            jdtls = {},
             -- tsserver = require("lsp.tsserver"),
             -- html = require("lsp.html"),
             -- cssls = require("lsp.cssls"),
