@@ -4,19 +4,20 @@ plugin.core = {
     "hrsh7th/nvim-cmp",
 
     requires = {
-        {"hrsh7th/cmp-buffer"}, -- buffer completions
-        {"hrsh7th/cmp-path"}, -- path completions
-        {"hrsh7th/cmp-cmdline"}, -- cmdline completions
-        {"saadparwaiz1/cmp_luasnip"}, -- snippet completions
-        {"hrsh7th/cmp-nvim-lsp"},
-        {"hrsh7th/cmp-nvim-lua"},
-        {"hrsh7th/cmp-calc"}, -- spell check
-        {"f3fora/cmp-spell"}, -- spell check
-        {'hrsh7th/cmp-vsnip'},
-        {'hrsh7th/vim-vsnip'},
+        { "hrsh7th/cmp-buffer" }, -- buffer completions
+        { "hrsh7th/cmp-path" }, -- path completions
+        { "hrsh7th/cmp-cmdline" }, -- cmdline completions
+        { "saadparwaiz1/cmp_luasnip" }, -- snippet completions
+        { "hrsh7th/cmp-nvim-lsp" },
+        { "hrsh7th/cmp-nvim-lua" },
+        { "hrsh7th/cmp-calc" }, -- spell check
+        { "f3fora/cmp-spell" }, -- spell check
+        { 'hrsh7th/cmp-vsnip' },
+        { 'hrsh7th/vim-vsnip' },
+        { 'onsails/lspkind.nvim' },
     },
     --as = "nvim-compe",
-    setup = function()  -- Specifies code to run before this plugin is loaded.
+    setup = function() -- Specifies code to run before this plugin is loaded.
     end,
 
     config = function() -- Specifies code to run after this plugin is loaded
@@ -30,6 +31,7 @@ plugin.core = {
         end
 
         local cmp = require('cmp')
+        local lspkind = require('lspkind')
 
         cmp.setup({
             snippet = {
@@ -73,8 +75,33 @@ plugin.core = {
                 { name = 'spell' }, -- For vsnip users.
                 { name = 'calc' }, -- For vsnip users.
             }, {
-                    { name = 'buffer' },
+                { name = 'buffer' },
+            }),
+
+            formatting = {
+                format = lspkind.cmp_format({
+                    mode = 'symbol', -- show only symbol annotations
+                    maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+
+                    -- The function below will be called before any actual modifications from lspkind
+                    -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+                    before = function(entry, vim_item)
+                        --...
+                        ---- fancy icons and a name of kind
+                        --vim_item.kind = string.format("%s %s", require("plugins.config.lspkind").symbol_icons[vim_item.kind], vim_item.kind)
+                        -- set a name for each source
+                        vim_item.menu = ({
+                            buffer   = "[BUF]",
+                            nvim_lsp = "[LSP]",
+                            luasnip  = "[LS]",
+                            nvim_lua = "[Lua]",
+                            vsnip    = "[Vsnip]",
+                            spell    = "[spell]",
+                        })[entry.source.name]
+                        return vim_item
+                    end
                 })
+            }
         })
         -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline('/', {
@@ -89,9 +116,10 @@ plugin.core = {
             sources = cmp.config.sources({
                 { name = 'path' },
             }, {
-                    { name = 'cmdline' }
-                })
+                { name = 'cmdline' }
+            })
         })
+
 
     end
 }
@@ -138,32 +166,32 @@ plugin.mapping = function()
         end
     end
     --mappings.register({
-        --mode = "i",
-        --key = {"<Tab>"},
-        --action = 'v:lua.tab_complete()',
-        --short_desc = "complete",
-        --expr = true
+    --mode = "i",
+    --key = {"<Tab>"},
+    --action = 'v:lua.tab_complete()',
+    --short_desc = "complete",
+    --expr = true
     --})
     --mappings.register({
-        --mode = "s",
-        --key = {"<Tab>"},
-        --action = 'v:lua.tab_complete()',
-        --short_desc = "complete",
-        --expr = true
+    --mode = "s",
+    --key = {"<Tab>"},
+    --action = 'v:lua.tab_complete()',
+    --short_desc = "complete",
+    --expr = true
     --})
     --mappings.register({
-        --mode = "i",
-        --key = {"<S-Tab>"},
-        --action = 'v:lua.s_tab_complete()',
-        --short_desc = "complete",
-        --expr = true
+    --mode = "i",
+    --key = {"<S-Tab>"},
+    --action = 'v:lua.s_tab_complete()',
+    --short_desc = "complete",
+    --expr = true
     --})
     --mappings.register({
-        --mode = "s",
-        --key = {"<S-Tab>"},
-        --action = 'v:lua.s_tab_complete()',
-        --short_desc = "complete",
-        --expr = true
+    --mode = "s",
+    --key = {"<S-Tab>"},
+    --action = 'v:lua.s_tab_complete()',
+    --short_desc = "complete",
+    --expr = true
     --})
 end
 return plugin
