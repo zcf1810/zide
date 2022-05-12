@@ -35,6 +35,10 @@ plugin.core = {
         --enable spellsuggest
         vim.opt.spell = true
         vim.opt.spelllang = { 'en_us' }
+        --disable spell highlight
+        vim.cmd("highlight clear SpellBad")
+        vim.cmd("highlight clear SpellCap")
+
         cmp.setup({
             snippet = {
                 expand = function(args)
