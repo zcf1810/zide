@@ -28,13 +28,13 @@ plugin.mapping = function()
         short_desc = "goto declaration",
         silent = false
     })
-    mappings.register({
-        mode = "n",
-        key = {"g", "r"},
-        action = '<cmd>lua vim.lsp.buf.references()<cr>',
-        short_desc = "goto references",
-        silent = false
-    })
+    --mappings.register({
+        --mode = "n",
+        --key = {"g", "r"},
+        --action = '<cmd>lua vim.lsp.buf.references()<cr>',
+        --short_desc = "goto references",
+        --silent = false
+    --})
     mappings.register({
         mode = "n",
         key = {"g", "i"},
@@ -43,14 +43,14 @@ plugin.mapping = function()
         silent = false
     })
 
-    mappings.register({
-        mode = "n",
-        key = {"K"},
-        action = '<cmd>lua vim.lsp.buf.hover()<cr>',
-        short_desc = "Displays hover information about the symbol.",
-        desc = "Displays hover information about the symbol under the cursor in a floating window. Calling the function twice will jump into the floating window.",
-        silent = false
-    })
+    --mappings.register({
+        --mode = "n",
+        --key = {"K"},
+        --action = '<cmd>lua vim.lsp.buf.hover()<cr>',
+        --short_desc = "Displays hover information about the symbol.",
+        --desc = "Displays hover information about the symbol under the cursor in a floating window. Calling the function twice will jump into the floating window.",
+        --silent = false
+    --})
     mappings.register({
         mode = "n",
         key = {"<C-n>"},

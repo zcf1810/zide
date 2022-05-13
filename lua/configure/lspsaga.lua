@@ -75,6 +75,71 @@ plugin.core = {
 }
 
 plugin.mapping = function()
+    local mappings = require('core.mapping')
+    mappings.register({
+        mode = "n",
+        key = {"g", "r"},
+        action = '<cmd>Lspsaga rename<cr>',
+        short_desc = "goto definition",
+        silent = false
+    })
+    mappings.register({
+        mode = "n",
+        --key = {"g", "x"},
+        key = {"<A-enter>"},
+        action = '<cmd>Lspsaga code_action<cr>',
+        short_desc = "goto definition",
+        silent = false
+    })
+    mappings.register({
+        mode = "x",
+        key = {"g", "x"},
+        action = ':<c-u>Lspsaga range_code_action<cr>',
+        short_desc = "goto definition",
+        silent = false
+    })
+    mappings.register({
+        mode = "n",
+        key = {"K"},
+        action = '<cmd>Lspsaga hover_doc<cr>',
+        short_desc = "goto definition",
+        silent = false
+    })
+    mappings.register({
+        mode = "n",
+        key = {"g", "o"},
+        action = '<cmd>Lspsaga show_line_diagnostics<cr>',
+        short_desc = "goto definition",
+        silent = false
+    })
+    mappings.register({
+        mode = "n",
+        key = {"g", "j"},
+        action = '<cmd>Lspsaga diagnostic_jump_next<cr>',
+        short_desc = "goto definition",
+        silent = false
+    })
+    mappings.register({
+        mode = "n",
+        key = {"g", "k"},
+        action = '<cmd>Lspsaga diagnostic_jump_prev<cr>',
+        short_desc = "goto definition",
+        silent = false
+    })
+    --mappings.register({
+        --mode = "n",
+        --key = {"<C-u>"},
+        --action = "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1, '<c-u>')<cr>",
+        --short_desc = "goto definition",
+        --silent = false
+    --})
+    --mappings.register({
+        --mode = "n",
+        --key = {"<C-k>"},
+        --action = "<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1, '<c-d>')<cr>",
+        --short_desc = "goto definition",
+        --silent = false
+    --})
 
 end
 return plugin
