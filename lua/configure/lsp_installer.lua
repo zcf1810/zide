@@ -97,11 +97,11 @@ plugin.core = {
                 lsp_config[server_name].setup(server_options)
             end
         end
-        -- auto format when write file
-        vim.cmd('augroup ' .. "lsp_format")
-        vim.cmd 'autocmd!'
-        vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.format()')
-        vim.cmd 'augroup END'
+        ---- auto format when write file
+        --vim.cmd('augroup ' .. "lsp_format")
+        --vim.cmd 'autocmd!'
+        --vim.cmd('autocmd BufWritePre * lua vim.lsp.buf.format()')
+        --vim.cmd 'augroup END'
     end,
 }
 
