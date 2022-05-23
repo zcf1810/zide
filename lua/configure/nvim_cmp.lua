@@ -33,11 +33,11 @@ plugin.core = {
         local cmp = require('cmp')
         local lspkind = require('lspkind')
         --enable spellsuggest
-        vim.opt.spell = true
-        vim.opt.spelllang = { 'en_us' }
-        --disable spell highlight
-        vim.cmd("highlight clear SpellBad")
-        vim.cmd("highlight clear SpellCap")
+        --vim.opt.spell = true
+        --vim.opt.spelllang = { 'en_us' }
+        ----disable spell highlight
+        --vim.cmd("highlight clear SpellBad")
+        --vim.cmd("highlight clear SpellCap")
 
         cmp.setup({
             snippet = {
