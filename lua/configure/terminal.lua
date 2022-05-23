@@ -30,10 +30,10 @@ plugin.core = {
             -- This field is only relevant if direction is set to 'float'
         }
         vim.api.nvim_exec([[
-            let g:toggleterm_terminal_mapping = '<C-t>'
-            autocmd TermEnter term://*toggleterm#* tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-            nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-            inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
+            let g:toggleterm_terminal_mapping = '<S-t>'
+            autocmd TermEnter term://*toggleterm#* tnoremap <silent><s-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+            nnoremap <silent><s-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+            inoremap <silent><s-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
         ]], false)
     end,
 
