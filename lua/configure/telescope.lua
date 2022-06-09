@@ -173,7 +173,7 @@ plugin.mapping = function()
     mappings.register({
         mode = "n",
         key = {"<leader>", "f", "g"},
-        action = "<cmd>lua require('telescope.builtin').live_grep({cwd = global_root_path})<cr>",
+        action = "<cmd>lua require('telescope.builtin').live_grep(require('telescope.themes').get_ivy({cwd = global_root_path}))<cr>",
         short_desc = "Find Query",
         silent = true
     })
