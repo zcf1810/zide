@@ -180,7 +180,7 @@ plugin.mapping = function()
     mappings.register({
         mode = {"n"},
         key = {"<leader>", "<A-s>"},
-        action = "<cmd>lua require('telescope.builtin').grep_string()<cr>",
+        action = "<cmd>lua require('telescope.builtin').grep_string({cwd = global_root_path})<cr>",
         short_desc = "Find Current World",
         silent = true
     })
