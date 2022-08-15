@@ -9,14 +9,14 @@ plugin.core = {
     end,
 
     config = function() -- Specifies code to run after this plugin is loaded
-        vim.cmd("hi TAGBAR guifg=#009090")
-        vim.cmd("hi NERDTREE guifg=#009090")
-        vim.cmd('highlight IndentBlanklineChar guifg=#808080 gui=nocombine')
+        vim.cmd("hi TAGBAR fg=#009090")
+        vim.cmd("hi NERDTREE fg=#009090")
+        vim.cmd('highlight IndentBlanklineChar fg=#808080 gui=nocombine')
         require('bufferline').setup {
             highlights = {
                 indicator_selected = {
                     --guifg = "#ee71ee"
-                    guifg = "#51afef"
+                    fg = "#51afef"
                 }
             },
             options = {
